@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_qiz_question_form" model="ir.ui.view">
+            <field name="name">qiz.question.form</field>
+            <field name="model">qiz.question</field>
+            <field name="arch" type="xml">
+                <form string="Qiz Question">
+                    <sheet>
+                        <group>
+                            <field name="text" readonly="1"/>
+                            <field name="type" readonly="1"/>
+                            <field name="total_responses_for_question" readonly="1"/>
+                        </group>
+                        <group string="Aggregated Results" name="aggregated_results">
+                            <field name="avg_numeric_value" readonly="1" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
+                            <field name="min_numeric_value" readonly="1" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
+                            <field name="max_numeric_value" readonly="1" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
+                            <field name="popular_answers_summary" readonly="1" attrs="{'invisible': [('type', 'not in', ['SHORT_TEXT', 'LONG_TEXT', 'SINGLE_CHOICE', 'MULTIPLE_CHOICE', 'DROPDOWN'])]}"/>
+                            <field name="true_count" readonly="1" attrs="{'invisible': [('type', '!=', 'BOOLEAN')]}"/>
+                            <field name="false_count" readonly="1" attrs="{'invisible': [('type', '!=', 'BOOLEAN')]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

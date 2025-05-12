@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Main Menu -->
+        <menuitem id="menu_qiz_integration_root"
+                  name="Qiz Integration"
+                  sequence="100"/>
+
+        <menuitem id="menu_qiz_templates"
+                  name="Qiz Templates"
+                  parent="menu_qiz_integration_root"
+                  action="action_qiz_template"
+                  sequence="10"/>
+
+        <!-- Menu item for the import wizard -->
+        <menuitem id="menu_import_qiz_data_wizard"
+                  name="Import from Qiz"
+                  parent="menu_qiz_integration_root"
+                  action="action_import_qiz_data_wizard"
+                  sequence="1"/>
+    </data>
+</odoo>

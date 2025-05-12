@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for Qiz Templates -->
+        <record id="view_qiz_template_tree" model="ir.ui.view">
+            <field name="name">qiz.template.tree</field>
+            <field name="model">qiz.template</field>
+            <field name="arch" type="xml">
+                <tree string="Qiz Templates">
+                    <field name="name"/>
+                    <field name="author_name"/>
+                    <field name="author_email"/>
+                    <field name="total_responses_qiz"/>
+                    <field name="last_imported_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Qiz Templates -->
+        <record id="view_qiz_template_form" model="ir.ui.view">
+            <field name="name">qiz.template.form</field>
+            <field name="model">qiz.template</field>
+            <field name="arch" type="xml">
+                <form string="Qiz Template">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" placeholder="Template Title" readonly="1"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="qiz_template_id" readonly="1"/>
+                                <field name="author_name" readonly="1"/>
+                                <field name="author_email" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="last_imported_date" readonly="1"/>
+                                <field name="total_responses_qiz" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                 <field name="description" readonly="1"/>
+                            </page>
+                            <page string="Questions &amp; Aggregated Results">
+                                <field name="question_ids" readonly="1">
+                                    <tree string="Questions">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="text"/>
+                                        <field name="type"/>
+                                        <field name="total_responses_for_question"/>
+                                        <!-- Add more fields to display aggregated results directly in tree or rely on question form -->
+                                        <field name="avg_numeric_value" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
+                                        <field name="min_numeric_value" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
+                                        <field name="max_numeric_value" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
+                                        <field name="popular_answers_summary" attrs="{'invisible': [('type', 'not in', ['SHORT_TEXT', 'LONG_TEXT', 'SINGLE_CHOICE', 'MULTIPLE_CHOICE', 'DROPDOWN'])]}"/>
+                                        <field name="true_count" attrs="{'invisible': [('type', '!=', 'BOOLEAN')]}"/>
+                                        <field name="false_count" attrs="{'invisible': [('type', '!=', 'BOOLEAN')]}"/>
+                                    </tree>
+                                    <!-- You might want a specific form view for questions if the tree is too cluttered -->
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Qiz Templates -->
+        <record id="action_qiz_template" model="ir.actions.act_window">
+            <field name="name">Qiz Templates</field>
+            <field name="res_model">qiz.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No Qiz templates imported yet.
+                </p><p>
+                    Use the 'Import from Qiz' action to fetch templates and their aggregated results.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
