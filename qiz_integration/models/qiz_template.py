@@ -21,12 +21,12 @@ class QizTemplate(models.Model):
     ]
 
     def view_qiz_template_details(self):
-        # Could be used for a button to open the form view, though default behavior usually handles this
+        
         self.ensure_one()
         return {
             'type': 'ir.actions.act_window',
             'res_model': self._name,
             'view_mode': 'form',
             'res_id': self.id,
-            'target': 'current', # or 'new' for a dialog
+            'target': 'current', 
         }

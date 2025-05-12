@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Tree View for Qiz Templates -->
+
         <record id="view_qiz_template_tree" model="ir.ui.view">
             <field name="name">qiz.template.tree</field>
             <field name="model">qiz.template</field>
@@ -16,7 +16,7 @@
             </field>
         </record>
 
-        <!-- Form View for Qiz Templates -->
+
         <record id="view_qiz_template_form" model="ir.ui.view">
             <field name="name">qiz.template.form</field>
             <field name="model">qiz.template</field>
@@ -48,7 +48,7 @@
                                         <field name="text"/>
                                         <field name="type"/>
                                         <field name="total_responses_for_question"/>
-                                        <!-- Add more fields to display aggregated results directly in tree or rely on question form -->
+                                       
                                         <field name="avg_numeric_value" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
                                         <field name="min_numeric_value" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
                                         <field name="max_numeric_value" attrs="{'invisible': [('type', 'not in', ['RATING', 'NUMBER_INPUT'])]}"/>
@@ -56,7 +56,7 @@
                                         <field name="true_count" attrs="{'invisible': [('type', '!=', 'BOOLEAN')]}"/>
                                         <field name="false_count" attrs="{'invisible': [('type', '!=', 'BOOLEAN')]}"/>
                                     </tree>
-                                    <!-- You might want a specific form view for questions if the tree is too cluttered -->
+                                    
                                 </field>
                             </page>
                         </notebook>
@@ -65,7 +65,7 @@
             </field>
         </record>
 
-        <!-- Action for Qiz Templates -->
+
         <record id="action_qiz_template" model="ir.actions.act_window">
             <field name="name">Qiz Templates</field>
             <field name="res_model">qiz.template</field>

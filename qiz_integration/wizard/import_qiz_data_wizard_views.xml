@@ -21,7 +21,7 @@
             <field name="name">Import Qiz Data</field>
             <field name="res_model">import.qiz.data.wizard</field>
             <field name="view_mode">form</field>
-            <field name="target">new</field> <!-- Opens in a dialog -->
+            <field name="target">new</field>
         </record>
     </data>
 </odoo>

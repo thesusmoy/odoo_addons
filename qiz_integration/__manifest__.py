@@ -1,4 +1,4 @@
-# qiz_integration/__manifest__.py
+
 {
     'name': 'Qiz Integration',
     'version': '1.0',
